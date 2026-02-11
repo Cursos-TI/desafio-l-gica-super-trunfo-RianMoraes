@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 // Desafio Super Trunfo - Países
 // Tema 2 - Comparação das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
@@ -21,6 +21,8 @@ int main() {
     float areaCarta02, pibCarta02, densidadePopCarta02, pibCaptaCarta02, superPoder02;
     unsigned long int populacaoCarta02; 
   
+    //Escolha de cartas para comparacao
+    int escolha;
 
     
     // Cadastro das Cartas:
@@ -101,16 +103,86 @@ int main() {
 
 
     // Comparação de Cartas:
+    
+    printf("Digite o Nº da opção de atributo a ser comparado: \n");
+    printf("1- População \n");
+    printf("2- Area \n");
+    printf("3- PIB \n");
+    printf("4- Número de pontos turisticos \n");
+    printf("5- Densidade demográfica \n\n", escolha);
+    scanf("%d", &escolha);
     // Desenvolva a lógica de comparação entre duas cartas.
     // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
 
 
-    // Exemplo:
-     if (populacaoCarta01 > populacaoCarta02) {
+    switch (escolha)
+    {
+    case 1:
+        if (populacaoCarta01 > populacaoCarta02) {
          printf("Carta 1 : %s tem maior população: %lu \n\n",nomeCidadeCarta01,populacaoCarta01);
-     } else {
+     }
+     else if (populacaoCarta01 == populacaoCarta02) {
+         printf("Carta 1 : %s e Carta 2 : %s tem igualdade em população: %lu \n\n",nomeCidadeCarta01,nomeCidadeCarta02,populacaoCarta01);
+     }
+     
+     else {
          printf("Carta 2 : %s tem maior população: %lu \n\n",nomeCidadeCarta02,populacaoCarta02);
      }
+        break;
+
+    case 2:
+    if (areaCarta01 > areaCarta02) {
+         printf("Carta 1 : %s tem maior area: %.2f \n\n",nomeCidadeCarta01,areaCarta01);
+     }else if (areaCarta01 == areaCarta02) {
+         printf("Carta 1 : %s e Carta 2 : %s tem igualdade em Area: %.2f \n\n",nomeCidadeCarta01,nomeCidadeCarta02,areaCarta01);
+     }
+     else {
+         printf("Carta 2 : %s tem maior area: %.2f \n\n",nomeCidadeCarta02,areaCarta02);
+     }
+    break;
+    
+case 3:
+    if (pibCarta01 > pibCarta02) {
+         printf("Carta 1 : %s tem maior PIB: %.2f \n\n",nomeCidadeCarta01,pibCarta01);
+     }else if (pibCarta01 == pibCarta02) {
+         printf("Carta 1 : %s e Carta 2 : %s tem igualdade em PIB: %.2f \n\n",nomeCidadeCarta01,nomeCidadeCarta02,pibCarta01);
+     }
+     else {
+         printf("Carta 2 : %s tem maior PIB: %.2f \n\n",nomeCidadeCarta02,pibCarta02);
+     }
+    break;
+    
+case 4:
+    if (qntPontoTuristicoCarta01 > qntPontoTuristicoCarta02) {
+         printf("Carta 1 : %s tem maior Numero de pontos turisticos: %d \n\n",nomeCidadeCarta01,qntPontoTuristicoCarta01);
+     }
+     else if (qntPontoTuristicoCarta01 == qntPontoTuristicoCarta02) {
+         printf("Carta 1 : %s e Carta 2 : %s tem igualdade em Numero de pontos turisticos: %d \n\n",nomeCidadeCarta01,nomeCidadeCarta02,qntPontoTuristicoCarta01);
+     }
+     
+     else {
+         printf("Carta 2 : %s tem maior Numero de pontos turisticos: %d \n\n",nomeCidadeCarta02,qntPontoTuristicoCarta02);
+     }
+    break;
+
+    case 5:
+    if (densidadePopCarta01 < densidadePopCarta02) {
+         printf("Carta 1 : %s tem maior Densidade: %.2f \n\n",nomeCidadeCarta01,densidadePopCarta01);
+     }else if (densidadePopCarta01 == densidadePopCarta02) {
+         printf("Carta 1 : %s e Carta 2 : %s tem igualdade em Densidade: %.2f \n\n",nomeCidadeCarta01,nomeCidadeCarta02,densidadePopCarta01);
+     }
+     else {
+         printf("Carta 2 : %s tem maior Densidade: %.2f \n\n",nomeCidadeCarta02,densidadePopCarta02);
+     }
+    break;
+
+    default:
+    printf("Escolha uma opção válida e tente novamente.\n\n");
+        break;
+    }
+
+    // Exemplo:
+    
 
     // Exibição dos Resultados:
     // Após realizar as comparações, exiba os resultados para o usuário.
